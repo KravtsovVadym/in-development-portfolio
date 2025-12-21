@@ -1,0 +1,38 @@
+.projects-grid {
+  display: grid;
+  grid-column: span 1;
+  gap: 20px;
+  
+}
+
+.project-card {
+  display: flex;
+  background: rgba(253, 253, 253, 0);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgba(255, 255, 255, 0.39);
+  transition: all 0.2s ease-in-out;
+}
+
+.project-image {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-content {
+  padding: 10px;
+}
+
+.portfolio {
+  text-align: center;
+  margin-top: 20px;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
