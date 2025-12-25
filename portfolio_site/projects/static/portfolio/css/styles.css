@@ -1,0 +1,82 @@
+.projects-grid {
+  display: grid;
+  grid-column: span 1;
+  gap: 20px;
+  
+}
+
+.project-card {
+  display: flex;
+  background: rgba(253, 253, 253, 0);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgba(255, 255, 255, 0.39);
+  transition: all 0.2s ease-in-out;
+}
+
+.project-image {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-content {
+  padding: 10px;
+}
+
+.profile-image {
+  filter: brightness(0.7);
+  width: 400px;
+  height: 550px;
+  border-radius: 20px;
+  
+}
+
+.greeting-box  {
+  display: inline-block;
+  background: rgba(0, 123, 255, 0.144);
+  border: 1px solid rgba(87, 138, 247, 0.479);
+  border-radius: 50px;
+  padding: 5px 20px;
+  margin-bottom: 40px;
+
+}
+
+
+
+.greeting-text {
+  color: rgb(87, 138, 247);
+  font-size: 0.8em;
+  font-weight: 450;
+}
+
+
+.gradient-text {
+  background: linear-gradient(45deg, rgb(165, 117, 255) 60%, rgb(75, 147, 255));
+  -webkit-background-clip: text;  
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.custom-divider-h1 {
+    background: linear-gradient(90deg,rgb(75, 147, 255), rgb(148, 100, 236));
+    height: 5px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    
+}
+
+.content-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.text-block {
+  text-align: left;
+}

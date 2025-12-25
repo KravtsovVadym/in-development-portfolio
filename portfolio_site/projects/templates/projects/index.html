@@ -16,27 +16,19 @@
     <div class="container-inner">
       <h1>Про мене</h1>
       <div class="custom-divider-h1"></div>
+      {% for prof in profile %}
       <div class="content-about">
         <div class="text-block">
-          <p>
-            A grid item can become a grid container. In the following example,
-            we extend the three-column grid with two positioned items seen
-            earlier, adding sub-items to the first grid item.
-          </p>
-          <p>
-            A grid item can become a grid container. In the following example,
-            we extend the three-column grid with two positioned items seen
-            earlier, adding sub-items to the first grid item.
-          </p>
-          <p>
-            A grid item can become a grid container. In the following example,
-            we extend the three-column grid with two positioned items seen
-            earlier, adding sub-items to the first grid item.
-          </p>
+          <p>{{ prof.about|linebreaks }}</p>
         </div>
-        <div class="">
-            <img src="{% static 'images/photo.jpg' %}" class="image_block"/>
+        <div>
+          <img
+            src="{{ prof.image.url }}"
+            alt="my photo"
+            class="profile-image"
+          />
         </div>
+        {% endfor %}
       </div>
     </div>
   </section>
