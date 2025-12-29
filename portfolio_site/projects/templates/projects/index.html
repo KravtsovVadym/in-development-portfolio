@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% load static %} {% block content %}
 
-<div class="container-inner">
+<div>
   <section id="Portfolio">
     <div class="container-inner">
       <div class="greeting-box greeting-text">Вітаю! 👋</div>
@@ -16,21 +16,32 @@
     <div class="container-inner">
       <h1>Про мене</h1>
       <div class="custom-divider-h1"></div>
-      {% for prof in profile %}
-      <div class="content-about">
-        <div class="text-block">
-          <p>{{ prof.about|linebreaks }}</p>
+      <div class="container-about">
+        <div class="about-item">
+          <p>{{ profile.about|linebreaks }}</p>
         </div>
-        <div>
+        <div class="about-item">
           <img
-            src="{{ prof.image.url }}"
+            src="{{ profile.image.url }}"
             alt="my photo"
             class="profile-image"
           />
         </div>
-        {% endfor %}
+
+        <div class="about-item">
+          <i class="bi bi-code-slash icon-box"></i>
+          <p class="about-item__text"> Чистий код</p>
+        </div>
+        <div class="about-item">
+          <i class="bi bi-rocket-takeoff icon-box"></i>
+          <p class="about-item__text">Швидке навчання</p></div>
+        <div class="about-item">
+          <i class="bi bi-lightning-fill icon-box"></i>
+          <p class="about-item__text">Завзятість</p>
+        </div>
+
       </div>
-    </div>
+   </div>
   </section>
   <section id="Projects">
     <div class="projects-grid">
