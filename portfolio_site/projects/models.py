@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class SkillIcon(models.Model):
     name = models.CharField('Icon name', max_length=50)
@@ -11,7 +12,7 @@ class SkillIcon(models.Model):
         blank=True
     )
 
-    link = URLField(
+    link = models.URLField(
         'Skill Link',
         max_length=255,
         null=True,
@@ -47,46 +48,12 @@ class Skill(models.Model):
 
 
     def __str__(self):
-        return f'Skill: {name}'
+        return f'Skill: {self.name}'
 
-
-class Projects(models.Model):
-    title = models.CharField(
-        'Projects',
-        max_length=50,
-        unique=True
-    )
-
-    description = models.CharField(
-        'Descriptions',
-        max_length=255
-    )
-
-    image = models.ImageField(
-        'Projects Images',
-        upload_to='project/'
-    )
-
-    link = models.URLField(
-        'Git Link',
-        max_length=255
-    )
-
-    technologies = models.CharField(
-        'Technogies',
-        max_length=255
-    )
-
-    class Meta:
-        verbose_name = 'Project'
-        verbose_name_plural = 'Projects'
-        
-    def __str__(self):
-        return self.title
 
 
 class Profile(models.Model):
-    autor = models.OneToOneField(
+    author = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='profile'
@@ -116,4 +83,45 @@ class Profile(models.Model):
         if full_name:
             return f'{self.author.username}: {full_name}'
 
-        return self.author.username()
+        return self.author.username
+
+
+class Project(models.Model):
+    title = models.CharField(
+        'Projects',
+        max_length=50,
+        unique=True
+    )
+
+    description = models.CharField(
+        'Descriptions',
+        max_length=255
+    )
+
+    image = models.ImageField(
+        'Projects Images',
+        upload_to='project/'
+    )
+
+    links = models.URLField(
+        'Git Link',
+        max_length=255
+    )
+
+    technologies = models.CharField(
+        'Technogies',
+        max_length=255
+    )
+
+    profile = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name='progects')
+
+
+    class Meta:
+        verbose_name = 'Project'
+        verbose_name_plural = 'Projects'
+
+    def __str__(self):
+        return self.title
