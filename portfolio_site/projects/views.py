@@ -1,13 +1,17 @@
 from django.shortcuts import render
-from projects.models import Project
-
+from projects.models import Profile
 
 
 def index(request):
-    project = Project.objects.select_related(
-        'profile__author'
+    profile = Profile.objects.select_related(
+        'author'
     ).prefetch_related(
-        'profile__skills__icon'
+        'projects',
+        'skills__icon'
     ).first()
-    title = project.profile.author
-    return render(request, 'projects/index.html', {project: 'projects', 'title': f'Protfolio {title}'})
+    print('='*10)
+    print(profile.skills.count())
+    print('='*10)
+
+    title = profile.author
+    return render(request, 'projects/index.html', {'profile': profile, 'title': f'Protfolio {title}'})
