@@ -116,7 +116,7 @@ class Project(models.Model):
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='progects')
+        related_name='projects')
 
 
     class Meta:
