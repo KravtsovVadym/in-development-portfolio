@@ -1,0 +1,7 @@
+/.venv
+
+/.continue
+
+/**/*.pyc
+
+/.env
