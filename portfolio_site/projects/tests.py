@@ -10,8 +10,6 @@ class ProjectsTest(TestCase):
             description = "CRUD operations",
             image = "static/images/your_image.jpg",
             technologies = "Django, HTML, CSS",
-            height_field = 100,
-            width_field = 100,
             links = "https://github.com/KravtsovVadym/tasks_course"
         )
 

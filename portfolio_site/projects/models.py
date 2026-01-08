@@ -20,11 +20,11 @@ class SkillIcon(models.Model):
     )
 
     def __str__(self):
-        return f'Skill Icon: {self.name}'
+        return f'Skill Icon: {self.name}'   
 
 
     def clean(self):
-        if not icon and not link:
+        if not self.icon and not link:
             raise ValidationErron({'icon': 'install the icon or link below'})
 
 
