@@ -3,8 +3,8 @@
 <div>
   <section id="Portfolio">
     <div class="container-inner">
-      <div class="greeting-box greeting-text">Hello! 👋</div>
-      <h1>I`m<span class="gradient-text">a begginer programmer</span></h1>
+      <div class="greeting-box greeting-text">Hi! 👋</div>
+      <h1>I`m<span class="gradient-text"> a begginer programmer</span></h1>
       <br />
       <p>
         I develop various applications with clean code and attention to detail.<br />constantly
@@ -12,7 +12,7 @@
 
       </p>
     </div>
-</section>
+  </section>
   <section id="About">
 
     <div class="container-inner">
@@ -23,11 +23,7 @@
           <p>{{ profile.about|linebreaks }}</p>
         </div>
         <div class="about-item">
-          <img
-            src="{{ profile.image.url }}"
-            alt="my photo"
-            class="profile-image"
-          />
+          <img src="{{ profile.image.url }}" alt="my photo" class="profile-image" />
         </div>
 
         <div class="about-item">
@@ -36,75 +32,65 @@
         </div>
         <div class="about-item">
           <i class="bi bi-rocket-takeoff icon-box"></i>
-          <p class="about-item__text">Fast learning</p></div>
+          <p class="about-item__text">Fast learning</p>
+        </div>
         <div class="about-item">
           <i class="bi bi-lightning-fill icon-box"></i>
           <p class="about-item__text">Persistence</p>
         </div>
 
       </div>
-   </div>
+    </div>
   </section> <br> <br>
 
-  <section id="Skills"> <div class="container-inner"> <h1>Technical Skills</h1> <div
-  class="custom-divider-h1"></div><br> <p>Tools and technologies I use.</p> <div class="container-base skills">
-
-      <div class="skills-item">
-        <p>box 1</p>
+  <section id="Skills">
+    <div class="container-inner">
+      <h1>Technical Skills</h1>
+      <div class="custom-divider-h1"></div><br>
+      <p>Tools and technologies I use.</p>
+<div class="container-base skills">
+  {% for skill in profile.skills.all %}
+  <div class="skills-item">
+    <div class="skill-header">
+      <img src="{{ skill.icon.icon.url }}" alt="{{ skill.name }}">
+      <p class="skill-name">{{ skill.name }}</p>
+    </div>
+    <div class="skill-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: {{ skill.level }}%"></div>
       </div>
-      <div class="skills-item">
-        <p>box 2</p>
+      <span class="skill-level">{{ skill.level }}%</span>
+    </div>
+  </div>
+  {% endfor %}
+</div><br>
+      <div class="skill-lern-item">
+        <p>asdasd</p>
       </div>
-      <div class="skills-item">
-        <p>box 3</p>
-      </div>
-      <div class="skills-item">
-        <p>box 4</p>
-      </div>
-      <div class="skills-item">
-        <p>box 1</p>
-      </div>
-      <div class="skills-item">
-        <p>box 2</p>
-      </div>
-      <div class="skills-item">
-        <p>box 3</p>
-      </div>
-      <div class="skills-item">
-        <p>box 4</p>
-      </div>
-    </div><br>
-    <div class="skill-lern-item">
-      <p>asdasd</p>
     </div>
 
 
-    </div>
-  </section>
-  <section id="Projects">
-    <div class="projects-grid">
-      {% for project in projects %}
-      <div class="project-card">
-        <img
-          src="{{ project.image.url }}"
-          alt="{{ project.title }}"
-          class="project-image"
-        />
-        <div class="project-content">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          {% if project.links %}
-          <a href="{{ project.links }}" target="_blank" class="btn btn-primary"
-            >View Project</a
-          >
-          {% endif %}
-        </div>
+
+</div>
+</section>
+<section id="Projects">
+  <div class="projects-grid">
+    {% for project in projects %}
+    <div class="project-card">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image" />
+      <div class="project-content">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        {% if project.links %}
+        <a href="{{ project.links }}" target="_blank" class="btn btn-primary">View Project</a>
+        {% endif %}
       </div>
-      {% empty %}
-      <p>No projects yet</p>
-      {% endfor %}
     </div>
-  </section>
+    {% empty %}
+    <p>No projects yet</p>
+    {% endfor %}
+  </div>
+</section>
 </div>
 
 {% endblock content %}
