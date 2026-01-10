@@ -2,60 +2,81 @@
 {% load static %}
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title }}</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'css/layout_styles.css' %}" />
-    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'css/layout_styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
 
 
-  <body>
-    <div class="container-outer">
-      <nav class="nav d-flex justify-content-between">
-        <a
-          class="nav-link nav-link-active"
-          aria-current="page"
-          href="#Portfolio"
-          >Portfolio</a
-        >
-        <div class="d-flex">
-          <a class="nav-link" href="#About">About</a>
-          <a class="nav-link" href="#Skills">Skills</a>
-          <a class="nav-link" href="#Projects">Projects</a>
-          <a class="nav-link" href="#Contacts">Contacts</a>
-        </div>
-      </nav>
-      <div class="custom-divider-nav"></div>
+<body>
+  <div class="container-outer">
+    <nav class="nav d-flex justify-content-between">
+      <a class="nav-link nav-link-active" aria-current="page" href="#Portfolio">Portfolio</a>
+      <div class="d-flex">
+        <a class="nav-link" href="#About">About</a>
+        <a class="nav-link" href="#Skills">Skills</a>
+        <a class="nav-link" href="#Projects">Projects</a>
+        <a class="nav-link" href="#Contacts">Contacts</a>
+      </div>
+    </nav>
+    <div class="custom-divider-nav"></div>
 
-      {% block content %} {% endblock content %}
+    {% block content %} {% endblock content %}
 
-      <footer class="d-flex justify-content-between align-item-center">
-        <div class="container-outer">
-          <div class="d-flex">
-            <img src="{% static 'images/logo.png' %}" class="logo" />
+    <section id="Contacts">
+      <div class="container-inner">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About</h3>
+            <p>
+              I'm a beginner programmer passionate about creating clean and efficient code.
+              Always learning and exploring new technologies.
+            </p>
+          </div>
 
-            <a href="">GITHUB</a>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <div class="footer-links">
+              <a href="#Portfolio">Home</a>
+              <a href="#About">About</a>
+              <a href="#Skills">Skills</a>
+              <a href="#Projects">Projects</a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: vadymkravtcsov@gmail.com</p>
+            <p>Location: Kyiv, Ukraine</p>
+            <div class="social-links">
+              <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"
-    ></script>
-    <script src="{% static 'js/script.js' %}"></script>
-  </body>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Vadym. All rights reserved.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+
 </html>
