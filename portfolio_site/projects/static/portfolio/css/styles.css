@@ -1,25 +1,26 @@
 #Portfolio {
-  min-height: auto;
-  margin-top: 0;
-  display: block;
-  padding: 120px 0 60px 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(87, 138, 247, 0.05) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 #About {
-  min-height: auto;
-  margin-top: 0;
-  display: block;
-  padding: 120px 0 60px 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(87, 138, 247, 0.05) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 100px;
 }
 
 #Skills {
-  min-height: auto;
-  margin-top: 0;
-  display: block;
-  padding: 120px 0 60px 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(87, 138, 247, 0.05) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-bottom: 150px;
+  
 }
 
 #Projects {
@@ -27,7 +28,6 @@
   margin-top: 0;
   display: block;
   padding: 120px 0 60px 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(87, 138, 247, 0.05) 100%);
 }
 
 .projects-grid {
@@ -238,6 +238,7 @@
 @media (min-width: 769px) {
   .container-base {
     grid-template-columns: repeat(1, 1fr);
+    
   }
 
   .container-base.skills {
@@ -361,5 +362,5 @@
   background: #77767b19;
   margin: 0 auto;
   width: 320px;
-  height: 100px;
+  height: auto;
 }
