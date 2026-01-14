@@ -21,7 +21,10 @@
   <div class="container-outer">
     <nav class="nav d-flex justify-content-between">
       <a class="nav-link nav-link-active" aria-current="page" href="#Portfolio">Portfolio</a>
-      <div class="d-flex">
+      <div class="d-flex align-items-center">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="bi bi-sun-fill"></i>
+        </button>
         <a class="nav-link" href="#About">About</a>
         <a class="nav-link" href="#Skills">Skills</a>
         <a class="nav-link" href="#Projects">Projects</a>
@@ -33,42 +36,41 @@
     {% block content %} {% endblock content %}
 
     <section id="Contacts">
-      <div class="container-inner">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>About</h3>
-            <p>
-              I'm a beginner programmer passionate about creating clean and efficient code.
-              Always learning and exploring new technologies.
-            </p>
-          </div>
 
-          <div class="footer-section">
-            <h3>Quick Links</h3>
-            <div class="footer-links">
-              <a href="#Portfolio">Home</a>
-              <a href="#About">About</a>
-              <a href="#Skills">Skills</a>
-              <a href="#Projects">Projects</a>
-            </div>
-          </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About</h3>
+          <p>
+            {{ profile.aboutFooter|linebreaks }}
+          </p>
+        </div>
 
-          <div class="footer-section">
-            <h3>Contact</h3>
-            <p>Email: vadymkravtcsov@gmail.com</p>
-            <p>Location: Kyiv, Ukraine</p>
-            <div class="social-links">
-              <a href="https://github.com/KravtsovVadym" class="social-icon"><i class="bi bi-github"></i></a>
-              <a href="https://www.linkedin.com/in/vadym-kravtsov/" class="social-icon"><i class="bi bi-linkedin"></i></a>
-              <a href="tg://resolve?domain=vadymkravtcov" class="social-icon"><i class="bi bi-telegram"></i></a>
-            </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="#Portfolio">Home</a>
+            <a href="#About">About</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Projects">Projects</a>
           </div>
         </div>
 
-        <div class="footer-bottom">
-          <p>&copy; 2026 Vadym. All rights reserved.</p>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: vadymkravtcsov@gmail.com</p>
+          <p>Location: Kyiv, Ukraine</p>
+          <div class="social-links">
+            <a href="https://github.com/KravtsovVadym" class="social-icon"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/vadym-kravtsov/" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="tg://resolve?domain=vadymkravtcov" class="social-icon"><i class="bi bi-telegram"></i></a>
+          </div>
         </div>
       </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Vadym. All rights reserved.</p>
+      </div>
+
     </section>
 
   </div>
