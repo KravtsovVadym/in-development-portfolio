@@ -61,13 +61,24 @@ class Profile(models.Model):
 
     about = models.TextField('About')
 
+    aboutFooter = models.TextField(
+        'AboutFooter',
+        blank=True
+        )
+    
+    aboutStart = models.TextField(
+        'AboutStart',
+        blank=True
+    )
+
+    learning_technologies = models.TextField(
+        'learning_technologies',
+        blank=True
+    )
+
     skills = models.ManyToManyField(
         Skill,
         related_name='profiles'
-    )
-    learning_technologies = models.TextField(
-        'learning_technologies',
-        blank=True,
     )
 
 
