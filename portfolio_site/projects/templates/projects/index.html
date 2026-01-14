@@ -4,16 +4,19 @@
   <section id="Portfolio">
     <div class="container-inner">
       <div class="greeting-box greeting-text">Hi! 👋</div>
-      <h1>I`m<span class="gradient-text"> a begginer programmer</span></h1>
+      <h1>I'm<span class="gradient-text"> Vadym Kravtsov<br />Junior Software Developer</h1>
       <br />
       <p>
-        I develop various applications with clean code and attention to detail.<br />constantly
-        learning and growing in the world of technology.
+        {{ profile.aboutStart|linebreaks }}
       </p>
+
+      <div class="scroll-indicator">
+        <i class="bi bi-chevron-down"></i>
+      </div>
     </div>
   </section>
-  <section id="About">
 
+  <section id="About">
     <div class="container-inner">
       <h1>About me</h1>
       <div class="custom-divider-h1"></div>
