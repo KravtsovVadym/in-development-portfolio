@@ -59,19 +59,9 @@
 }
 
 .container-inner {
-  max-width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
 
-}
-
-.container-about {
-  max-width: 500px;
-  margin: 0 auto;
-
-}
-
-body {
-  background-color: #000000;
 }
 
 section {
@@ -80,16 +70,6 @@ section {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-h1 {
-  font-size: 3.4em;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-p {
-  color: #949494;
 }
 
 :root {
@@ -203,3 +183,121 @@ p {
   font-size: 0.9em;
   margin: 0;
 }
+
+/* basic style theme */
+body {
+  background-color: #000000;
+}
+
+
+h1 {
+  font-size: 3.4em;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+p {
+  color: #949494;
+}
+
+/* settings theme */
+
+
+.theme-toggle {
+  background: #77767b19;
+  border: 1px solid #77767b33;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+  color: #578af7;
+}
+
+.theme-toggle:hover {
+  background: #007BFF24;
+  border-color: rgba(87, 138, 247, 0.479);
+}
+
+
+body.light-theme {
+  background-color: #f0f2f5;
+}
+
+.light-theme .container-inner {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 60px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .container-about {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 60px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.light-theme #Portfolio .container-inner {
+  background: transparent;
+  box-shadow: none;
+}
+
+.light-theme h1,
+.light-theme .nav-link:hover,
+.light-theme .about-item__text,
+.light-theme .skill-name,
+.light-theme .project-content h3,
+.light-theme .footer-section h3 {
+  color: #3084b1;
+}
+
+.light-theme p,
+.light-theme .nav-link,
+.light-theme .project-content p,
+.light-theme .footer-section p,
+.light-theme .footer-links a {
+  color: #666666;
+}
+
+.light-theme .profile-image {
+  filter: brightness(1);
+}
+
+.light-theme .about-item:nth-child(n+3),
+.light-theme .skills-item,
+.light-theme .project-card,
+.light-theme .skill-lern-item {
+  background: #f8f9fa;
+  border-color: #e0e0e0;
+}
+
+.light-theme .footer-content {
+  border-bottom-color: #e0e0e0;
+}
+
+.light-theme .theme-toggle {
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+}
+
+.light-theme #Contacts {
+  background: linear-gradient(180deg, transparent 0%, rgba(87, 138, 247, 0.03) 100%);
+}
+
+.light-theme .greeting-box {
+  background: rgba(87, 138, 247, 0.1);
+  border-color: rgba(87, 138, 247, 0.3);
+}
+
+.light-theme .project-content .btn-primary:hover {
+  color: #4b73e8;
+}
+.light-theme .project-content .btn-primary {
+  color: #4b73e8;
+}
+
