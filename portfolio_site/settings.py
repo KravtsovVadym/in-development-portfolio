@@ -18,7 +18,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='')
 # Add development hosts only if DEBUG is True
 if config('DEBUG', default=False, cast=bool):
     ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost', 'host.docker.internal'])
-ALLOWED_HOSTS = []
 
 # User model
 AUTH_USER_MODEL = 'auth.User'
