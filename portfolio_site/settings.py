@@ -2,27 +2,22 @@ from pathlib import Path
 from decouple import config, Csv
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='')
-# Add development hosts only if DEBUG is True
 if config('DEBUG', default=False, cast=bool):
     ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost', 'host.docker.internal'])
 
-# User model
+
 AUTH_USER_MODEL = 'auth.User'
 
-# Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,8 +62,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio_site.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+
 
 DATABASE_URL = config('DATABASE_URL', default=None)
 
@@ -93,8 +87,7 @@ else:
     }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -112,8 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -124,15 +116,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-# WriteNoise for compression and caching
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -140,7 +129,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
-# CLOUDINARY CONFIGURATION (MEDIA FILES)
 
 import cloudinary
 import cloudinary.uploader
@@ -153,3 +141,72 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+
+import sys
+print("=" * 50, file=sys.stderr)
+print("CLOUDINARY CONFIGURATION CHECK:", file=sys.stderr)
+print("=" * 50, file=sys.stderr)
+
+try:
+    cloud_name = config('CLOUDINARY_CLOUD_NAME')
+    api_key = config('CLOUDINARY_API_KEY')
+    api_secret = config('CLOUDINARY_API_SECRET')
+    
+    print(f"✅ CLOUDINARY_CLOUD_NAME: {cloud_name}", file=sys.stderr)
+    print(f"✅ CLOUDINARY_API_KEY: {api_key[:10]}...", file=sys.stderr)
+    print(f"✅ CLOUDINARY_API_SECRET: {'*' * 10}... (hidden)", file=sys.stderr)
+    print(f"✅ DEFAULT_FILE_STORAGE: {DEFAULT_FILE_STORAGE}", file=sys.stderr)
+    
+    cloudinary.config(
+        cloud_name=cloud_name,
+        api_key=api_key,
+        api_secret=api_secret
+    )
+    result = cloudinary.api.ping()
+    print(f"✅ Cloudinary connection: SUCCESS! {result}", file=sys.stderr)
+    
+except Exception as e:
+    print(f"❌ ERROR: {e}", file=sys.stderr)
+    
+print("=" * 50, file=sys.stderr)
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'cloudinary': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'cloudinary_storage': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
