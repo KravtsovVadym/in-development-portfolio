@@ -16,3 +16,7 @@ pillow==12.1.0  # image processing
 # Production Server
 gunicorn==23.0.0  # WSGI server
 whitenoise==6.11.0  # static files serving
+
+# Media Storage
+cloudinary==1.41.0
+django-cloudinary-storage==0.3.0
