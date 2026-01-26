@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
+from cloudinary.models import CloudinaryField
+
 class SkillIcon(models.Model):
     name = models.CharField('Icon name', max_length=50)
 
@@ -81,10 +83,10 @@ class Profile(models.Model):
     )
 
 
-    image = models.ImageField(
+    image = CloudinaryField(
         'Profile Image',
-        upload_to='profile/'
-        )
+        folder='profile'
+    )
 
 
     class Meta:
