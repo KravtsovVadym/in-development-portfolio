@@ -18,15 +18,14 @@ if config('DEBUG', default=False, cast=bool):
 AUTH_USER_MODEL = 'auth.User'
 
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django.contrib.staticfiles',
     'cloudinary',       
     'projects',
 ]
