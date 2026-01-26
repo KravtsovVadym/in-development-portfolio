@@ -6,9 +6,9 @@ from cloudinary.models import CloudinaryField
 class SkillIcon(models.Model):
     name = models.CharField('Icon name', max_length=50)
 
-    icon = models.ImageField(
+    icon = CloudinaryField(
         'Skill Icon',
-        upload_to='skills_icon/',
+        folder='skills_icon',
         null=True,
         blank=True
     )
@@ -78,6 +78,7 @@ class Profile(models.Model):
     )
 
     skills = models.ManyToManyField(
+     
         Skill,
         related_name='profiles'
     )
@@ -115,11 +116,10 @@ class Project(models.Model):
         max_length=255
     )
 
-    image = models.ImageField(
+    image = CloudinaryField(
         'Projects Images',
-        upload_to='project/'
+        folder='project'
     )
-
     links = models.URLField(
         'Git Link',
         max_length=255
