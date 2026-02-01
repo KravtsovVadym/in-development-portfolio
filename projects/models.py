@@ -4,17 +4,17 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from cloudinary.models import CloudinaryField
 
 class SkillIcon(models.Model):
-    name = models.CharField('Icon name', max_length=50)
+    name = models.CharField(verbose_name='Icon name', max_length=50)
 
     icon = CloudinaryField(
-        'Skill Icon',
+        verbose_name='Skill Icon',
         folder='skills_icon',
         null=True,
         blank=True
     )
 
     link = models.URLField(
-        'Skill Link',
+        verbose_name='Skill Link',
         max_length=255,
         null=True,
         blank=True
@@ -30,7 +30,7 @@ class SkillIcon(models.Model):
 
 
 class Skill(models.Model):
-    name = models.CharField('Skills', max_length=50)
+    name = models.CharField(verbose_name='Skills', max_length=50)
 
     level = models.PositiveSmallIntegerField(
         default=0,
@@ -63,17 +63,17 @@ class Profile(models.Model):
     about = models.TextField('About')
 
     aboutFooter = models.TextField(
-        'AboutFooter',
+        verbose_name='AboutFooter',
         blank=True
         )
     
     aboutStart = models.TextField(
-        'AboutStart',
+        verbose_name='AboutStart',
         blank=True
     )
 
     learning_technologies = models.TextField(
-        'learning_technologies',
+        verbose_name='learning_technologies',
         blank=True
     )
 
@@ -85,7 +85,7 @@ class Profile(models.Model):
 
 
     image = CloudinaryField(
-        'Profile Image',
+        verbose_name='Profile Image',
         folder='profile'
     )
 
@@ -106,27 +106,27 @@ class Profile(models.Model):
 
 class Project(models.Model):
     title = models.CharField(
-        'Projects',
+        verbose_name='Projects',
         max_length=50,
         unique=True
     )
 
     description = models.CharField(
-        'Descriptions',
+        verbose_name='Descriptions',
         max_length=255
     )
 
     image = CloudinaryField(
-        'Projects Images',
+        verbose_name='Projects Images',
         folder='project'
     )
     links = models.URLField(
-        'Git Link',
+        verbose_name='Git Link',
         max_length=255
     )
 
     technologies = models.CharField(
-        'Technogies',
+        verbose_name='Technogies',
         max_length=255
     )
 
